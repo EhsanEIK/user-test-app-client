@@ -52,6 +52,9 @@ const Users = () => {
                                     <td>{user.email}</td>
                                     <td>{user.age}</td>
                                     <td>
+                                        <Link to={`/updateUser/${user?._id}`}>
+                                            <button className="btn btn-sm bg-blue-500 border-blue-500 text-white mr-2">Edit</button>
+                                        </Link>
                                         <button onClick={() => handleDeleteUser(user._id)} className="btn btn-sm bg-red-500 border-red-500 text-white">Delete</button>
                                     </td>
                                 </tr>)
@@ -59,7 +62,7 @@ const Users = () => {
                     </tbody>
                 </table>
             </div>
-        </section>
+        </section >
     );
 };
 
