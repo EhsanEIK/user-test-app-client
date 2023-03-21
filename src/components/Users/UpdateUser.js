@@ -6,10 +6,10 @@ const UpdateUser = () => {
     const user = useLoaderData();
     const [updateUser, setUpdateUser] = useState(user);
 
-    const handleUpdateUser = id => {
+    const handleUpdateUser = event => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`http://localhost:5000/users/${user?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -36,7 +36,7 @@ const UpdateUser = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={() => handleUpdateUser(updateUser?._id)} className="card-body">
+                    <form onSubmit={handleUpdateUser} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
